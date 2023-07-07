@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전개연산자 spread(확산)</title>
+</head>
+<body>
+    <script>
+        //자바스크립트에서 사용하는 기존의 배열, 객체를 
+        // 빠르게 복사하는 방법
+
+        let fruits = ["사과","오렌지","포도","수박"];
+        
+        let colors = ["빨강","초록","노랑","파랑","검정"];
+
+        //서로 다른 배열을 합쳐서 사용하고 싶어요?
+
+        //배열에 관련된 함수명령어 -> concat() 서로다른 배열을 합칠 때 사용 //  push(), pop(), ... 
+
+        // let plus = fruits.concat(colors);
+        // console.log(plus)
+
+        //배열을 복사 spread
+        let fruitsClone = [...fruits];
+
+        fruitsClone[0] = "키위"; //사과 대신 키위로 변경
+
+        console.log(fruits);
+        console.log(fruitsClone);
+
+        //배열을 병합
+        let test = [...fruits,...colors,"보라",25000];
+
+        let [a,b,c,d,e,f,g] = test; //배열안에 있는 순번값에 해당하는 데이터를
+                                    //각 변수에 할당
+        console.log(test);
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        console.log(d);
+        console.log(e);
+        console.log(f);
+        console.log(g);
+        // test = ["사과","오렌지","포도","수박","빨강","초록","노랑","파랑","검정"]
+        // 쇼핑몰에 상품정보 데이터가 있고  -> 업데이트 되는 데이터가 새로 추가될 때
+
+
+        //객체도 작업해볼까요?
+        let obj = {
+            name:"Kwon",
+            address:"고양시",
+            age:35000
+        }
+
+        let users = {...obj,birth:"5000-12-31",phone:"010-3333-4444"} //spread 연산자 사용
+        
+        let {name,address,phone} = users; //구조분해 할당
+        console.log(name);
+        console.log(address);
+        console.log(phone);
+        // console.log(users.name);
+        // console.log(users.age);
+        // console.log(users.phone);
+        // console.log(users);
+
+        //원본데이터는 그냥 두고 
+        // -> 사본 만들어서 조작하고 수정하면 나중에 다시 데이터를 되돌릴 때도 크게 문제가 없음
+    </script>
+</body>
+</html>

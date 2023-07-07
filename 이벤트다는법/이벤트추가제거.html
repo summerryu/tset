@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 추가, 제거</title>
+</head>
+<body>
+    <div class="test">
+        이벤트 테스트
+    </div>
+    <script>
+        const test = document.querySelector(".test");
+
+
+        function testAlert(){
+            alert("클릭했을때 실행")
+            console.log("댐?")
+        }
+
+        function mouseTest(){
+            document.querySelector("body").style.backgroundColor = "pink";
+        }
+
+        // 이벤트 동작시 일므없는 함수는 funtion(){}
+        // 이름이 있는 함수(사용자 정의함수) 호출은 ()가 붙지않음 
+
+   
+
+        setTimeout(()=>{
+            // 이벤트 제거시 사용 - > 더이상 클릭기능 사용 x
+            test.removeEventListener("click",testAlert);
+
+            // 마우스 올리는 이벤트 기능을 새로 추가
+            test.addEventListener("mouseenter",mouseTest);
+        },6000);
+
+
+
+    </script>
+</body>
+</html>

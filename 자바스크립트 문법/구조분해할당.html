@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구조분해 할당 문법</title>
+</head>
+<body>
+    <script>
+        // 배열,객체 -> 자바스크립트에서 여러개의 데이터값을 보관(구조)하는 문법
+        // 배열 -> 데이터를 순서대로 보관 (인덱스 번호값으로 접근)
+        // let a = ["1","2","3","4"];
+        // a[2]
+        // 객체 -> 데이터를 담고 있는 키와 값으로 묶여진 형태
+        // let b = {작명:"문자",작명:30,작명:function(){}}
+        //   b.작명  
+
+        const userNames = ["홍길동","김길동","만길동","최길동"];
+        
+        //배열안에 있는 데이터값을 원하는 변수이름에 담아놓고 쓰고 싶어요?
+        // let hongName = userNames[0];
+        // let kimName = userNames[1];
+        // let manName = userNames[2];
+        // let choiName = userNames[3];
+        // console.log(hongName);
+        // console.log(kimName);
+
+        //구조분해할당 문법을 적용했을 때?
+        let [hongName,kimName,,choiName] = userNames;
+        console.log(hongName);
+        console.log(kimName);
+        console.log(choiName);
+
+        const shoppingData = {
+            no:"1번",
+            prdName:"반팔티셔츠",
+            price:35000
+        }
+
+        //원본 배열과 객체는 훼손되지 않음(원본은 변경되지 않음)
+        // let userNo = shoppingData.no;
+        // let productName = shoppingData.prdName;
+        // let productPrice = shoppingData.price;
+
+        let {price,no,prdName} = shoppingData;
+        // console.log(no);
+        // console.log(prdName);
+        // console.log(price);
+        price = 60000; // 구조분해할당문법으로 나눠진 price 변수 60000값을 대입
+        
+        console.log(price); //따로 쪼개준 변수
+        console.log(shoppingData.price); //원본데이터
+        
+        //구조분해할당 문법은 -> 배열,객체에 있는 구조적인 데이터를
+        //개별적으로 사용하기 위해 새로운 변수이름에 각각 담아서 분리시켜서 사용할 수 있음
+        // *데이터를 따로 사용하기 위한 작업이 필요한 경우 원본은 수정하지 않고
+        // 사본을 따로 만들어서 제공해준다.
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화살표함수 arrow function</title>
+</head>
+<body>
+    <div id="box">박스1</div>
+    <div id="box2">박스2</div>
+    <div class="box3">박스3</div>
+
+    <script>
+        //기존 함수 문법 function
+        
+        //호출   //전달인자(인수)  argument
+        let monday = days("월요일","한주시작");
+        console.log(monday); // 뭐가 뜰까요?
+
+        //선언  //매개변수 parameter
+        function days(test1,test2){
+            //함수안에서 사용하는 매개변수나 let,const를 만든 변수,상수는
+            //함수안에서 사용가능함 (지역변수)
+            let result = test1 + test2;
+            //반환값 
+            //함수내에서 사용하고 있는 데이터값을 함수 밖에서도 사용가능하도록 내보내는 기능
+            //함수를 종료
+            return result    
+        }
+
+        //arrow function 화살표 함수 방법으로 작업
+        // function 함수명(매개변수,매개변수,매개변수){}   let 함수명 = ()=>{} 
+        
+
+        // 화살표 함수를 이용해서 만든 monday2는 선언이 먼저 되있어야
+
+        let monday2 = (test3,test4) => {
+            //함수 호출시 실행할 코드들을 적어주는 것
+            let result2 = test3 + test4;
+            return result2;
+        }
+
+        //호출이 가능하다. (함수 선언 후 -> 호출하는 형식)
+        let days2 = monday2("화살표함수",1500);  //result2에 있는 데이터값으로 바뀜
+        console.log(days2);
+
+        /**********************************************************************/
+        
+        const box1 = document.querySelector("#box1");
+
+        // box1.onclick = function(event){ 실행코드}
+        // box1.onclick = ()=>{}
+
+        // setInterval(function(){},3000);
+        // setInterval(()=>{},3000);
+
+        // $("#box2").on("click",(event)=>{
+        //     event.preventDefault(); // a태그 form태그 화면이동 중지
+        // });
+        
+        // arrow function은 함수이름을 작명할 때는 
+        // let, const를 써서 함수명 작명후 대입 시켜야함  let 작명 = ()=>{} 
+    </script>
+</body>
+</html>
